@@ -9,38 +9,46 @@ function PostForm({create}) {
 
     const createPost = (e) => {
         e.preventDefault();
-        const newPost = {...post};
+        const newPost = {
+            ...post,
+            id: Date.now()
+        };
         create(newPost);
         setPost({title: '', description: '', tags: []});
     }
 
-    function tagsList(selectTags) {
-        setPost({...post, tags: selectTags});
+    function tagsList(tagsArr) {
+        setPost({...post, tags: tagsArr});
     }
 
     return (
-        <div className='container'>
-            <div className='posts'>
-                <form>
-                    <InputGroup
-                        value={post.title}
-                        type='text'
-                        placeholder='Text here...'
-                        title='Title'
-                        onChange={e => setPost({...post, title: e.target.value})}/>
-                    <Tags
-                        tagsList={tagsList}/>
-                    <TextareaGroup
-                        value={post.description}
-                        placeholder='Text here...'
-                        title='Description'
-                        onChange={e => setPost({...post, description: e.target.value})}/>
-                    <Button
-                        text='Create'
-                        theme='dark'
-                        onClick={createPost}/>
-                </form>
-            </div>
+        <div className='posts__form'>
+            <form name="post_form" method="post" action="">
+                <InputGroup
+                    value={post.title}
+                    name='post_title'
+                    type='text'
+                    placeholder='Text here...'
+                    title='Title'
+                    required
+                    onChange={e => setPost({...post, title: e.target.value})}/>
+                <Tags
+                    tagsArr={post.tags}
+                    tagsList={tagsList}/>
+                <TextareaGroup
+                    value={post.description}
+                    name='post_description'
+                    placeholder='Text here...'
+                    title='Description'
+                    required
+                    onChange={e => setPost({...post, description: e.target.value})}/>
+                <Button
+                    type='submit'
+                    text='Create'
+                    theme='dark'
+                    onClick={createPost}
+                    disabled={!state.formValid}/>
+            </form>
         </div>
     );
 }

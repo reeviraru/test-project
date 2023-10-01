@@ -11,7 +11,7 @@ function PostItem(props) {
                         <li className="tag" key={index}>{tag}</li>)
                     }
                 </ul>
-                <h3 className="item__info_name">{props.post.title}</h3>
+                <a className="item__info_name" href="">{props.post.title}</a>
                 <p className="item__info_text">{props.post.description}</p>
             </div>
 
@@ -22,7 +22,7 @@ function PostItem(props) {
                 <Button
                     text='Delete'
                     theme='dark border'
-                    onClick={() => props.remove(props.key)}/>
+                    onClick={() => props.removePost(props.id)}/>
             </div>
         </div>
     );

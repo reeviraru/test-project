@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import './Tags.css';
 
-function Tags({tagsList}) {
-    const [tags, setTags] = useState(['Theme #1', 'Theme #2', 'Theme #3', 'Theme #4', 'Theme #5']);
-    const [selectTags, setSelectTags] = useState([]);
+function Tags({tagsArr, tagsList}) {
+    const [tags, setTags] = useState(['Theme #1', 'Theme #2', 'Theme #3', 'Theme #4', 'Theme #5', 'Theme #6']);
     
     function addTags(event) {
         const value = event.target.getAttribute('data-value');
-        if (!selectTags.includes(value)) {
-            setSelectTags([...selectTags, value]);
+        if (!tagsArr.includes(value)) {
+            tagsArr.push(value);
         }
+        tagsList(tagsArr);
     };
 
     function deleteTags(event) {
         const deleteButton = event.target.getAttribute('data-name');
-        setSelectTags(selectTags.filter(tag => tag !== deleteButton));
+        const filteredArray = tagsArr.filter(tag => tag !== deleteButton);
+        tagsList(filteredArray);
     };
 
     useEffect(() => {
@@ -25,17 +26,12 @@ function Tags({tagsList}) {
         });
     }, []);
     
-    useEffect(() => {
-        tagsList(selectTags);
-    }, [selectTags]);
-
-    
     return (
         <div className="tags">
             <span className="tags__name">Theme</span>
 
             <ul className="tags__list">
-                {selectTags.map((tag, index) => 
+                {tagsArr.map((tag, index) => 
                     <li className="tags__list_item" key={index}>
                         <span>{tag}</span>
                         <div className="delete" onClick={deleteTags} data-name={tag}>&#215;</div>

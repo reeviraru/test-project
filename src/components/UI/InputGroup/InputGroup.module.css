@@ -1,10 +1,12 @@
 .label {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 400px;
     margin-bottom: 30px
 }
 .label__name {
-    display: block;
+    display: inline-block;
     padding-bottom: 5px;
     font-size: 14px;
     font-weight: 400;
@@ -13,7 +15,6 @@
 .label__input,
 .label__textarea {
     width: 100%;
-    max-width: 400px;
     font-size: 16px;
     border: none;
     border-bottom: 1px var(--dark) solid;

@@ -1,4 +1,8 @@
 .tags {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
     margin-bottom: 30px;
 }
 .tags__name {
@@ -72,6 +76,7 @@
     margin-top: 43px;
     background: var(--light);
     border: 1px var(--grey) solid;
+    transition: .2s
 }
 .tags__options.open {
     visibility: visible;

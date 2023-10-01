@@ -1,10 +1,12 @@
 import React, {FC} from 'react';
 import cl from './Button.module.css';
 
-function Button({theme, text, onClick}) {
+function Button({type, theme, text, onClick, disabled}) {
     return (
         <button
+            type={type}
             onClick={onClick}
+            disabled={disabled}
             className={
             theme === 'light'
             ? cl.light
