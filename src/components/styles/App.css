@@ -2,7 +2,8 @@
   --dark: #2A2A2A;
   --light: #FFFFFF;
   --grey: rgba(42, 42, 42, .4);
-  --light-grey: rgba(42, 42, 42, .2)
+  --light-grey: rgba(42, 42, 42, .2);
+  --error: rgb(227, 66, 52, .4)
 }
 
 body,
@@ -124,6 +125,7 @@ textarea {
 }
 
 .item__info_text {
+  word-wrap: break-word;
   margin: 0
 }
 

@@ -10,7 +10,6 @@ button {
 button:not(:last-child) {
     margin-right: 10px;
 }
-button[disabled],
 button:hover {
     opacity: .7;
 }
@@ -22,6 +21,10 @@ button.active::after {
     height: 1px;
     background: #FFFFFF;
 }
+button[disabled] {
+    opacity: 1;
+    cursor: default
+}
 .dark {
     background: #2A2A2A;
     color: #FFFFFF;
@@ -32,6 +35,7 @@ button.active::after {
     color: #2A2A2A;
     border: 2px #FFFFFF solid;
 }
+button[disabled],
 .dark_border {
     background: none;
     color: #2A2A2A;
