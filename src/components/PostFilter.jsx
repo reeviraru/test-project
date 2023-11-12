@@ -10,6 +10,12 @@ function PostFilter({tags, setFilter}) {
         setFilter(filterList);
     }
 
+    function clear() {
+        const selected = document.querySelectorAll('input.filter__option_input:checked');
+        selected.forEach((checkbox) => checkbox.checked = false);
+        setFilter([]);
+    }
+
     return (
         <div className="posts__filter">
             <h2>Posts filter</h2>
@@ -17,12 +23,12 @@ function PostFilter({tags, setFilter}) {
                 <div className="filter__options">
                     {tags.map((tag, index) => 
                         <label className="filter__option" key={index}>
+                            <span>{tag}</span>
                             <input
                                 type="checkbox"
                                 className="filter__option_input"
                                 data-value={tag}/>
                             <div className="checkbox-custom"></div>
-                            <span>{tag}</span>
                         </label>
                     )}
                 </div>
@@ -31,6 +37,11 @@ function PostFilter({tags, setFilter}) {
                     theme='dark border'
                     text='Sort'
                     onClick={filter}/>
+                <Button
+                    type='button'
+                    theme='dark border'
+                    text='Clear'
+                    onClick={clear}/>
             </div>
         </div>
     );

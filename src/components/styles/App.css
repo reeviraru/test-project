@@ -41,21 +41,6 @@ textarea {
   background-color: var(--dark)
 }
 
-.navbar__logo {
-  position: absolute;
-  height: 100%;
-  display: block;
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--light);
-  padding: 0 20px;
-  text-decoration: none;
-  text-transform: uppercase;
-  user-select: none;
-  line-height: 70px;
-  opacity: .5
-}
-
 .navbar__list {
   width: 100%;
   display: flex;
@@ -152,21 +137,29 @@ textarea {
 }
 
 .posts__filter {
-  position: absolute;
-  top: 50px;
-  left: -300px;
+  position: relative;
+  max-width: 400px;
+  padding-bottom: 50px;
 }
 
 .filter__options {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
 .filter__option {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  padding: 5px 10px;
+  border: 1px var(--light-grey) solid;
+  border-radius: 5px;
+}
+
+.filter__option:not(:last-child) {
+  margin-right: 10px;
 }
 
 .filter__option_input {
@@ -177,8 +170,8 @@ textarea {
   position: relative;
   width: 17px;
   height: 17px;
-  margin-right: 10px;
-  border: 1px var(--dark) solid;
+  margin-left: 5px;
+  border: 1px var(--light-grey) solid;
   border-radius: 5px;
   cursor: pointer;
 }

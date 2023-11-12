@@ -3,8 +3,6 @@ import React from "react";
 function Navbar() {
     return (
         <nav className='navbar'>
-            <a className='navbar__logo' href="/">Logotype</a>
-            
             <div className='container'>
                 <ul className='navbar__list'>
                     <li className='navbar__list_item'><a href="/">Home</a></li>

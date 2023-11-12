@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
 import Button from "./UI/Button/Button";
 
 function PostItem(props) {
+    const router = useHistory();
 
     return (
         <div className="item">
@@ -18,7 +20,8 @@ function PostItem(props) {
             <div className="item__btn">
                 <Button
                     text='Read more'
-                    theme='dark'/>
+                    theme='dark'
+                    onClick={() => router.push(`/posts/${props.post.id}`)}/>
                 <Button
                     text='Delete'
                     theme='dark border'
