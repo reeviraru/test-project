@@ -4,7 +4,7 @@ import TextareaGroup from "./UI/TextareaGroup/TextareaGroup";
 import Button from "./UI/Button/Button";
 import Tags from "./UI/Tags/Tags";
 
-function PostForm({create}) {
+function PostForm({create, tags}) {
     const [post, setPost] = useState({
         title: '',
         description: '',
@@ -50,7 +50,7 @@ function PostForm({create}) {
                     : fieldInput.classList.add('is-invalid')
                 break;
             case 'description':
-                descriptionValid = fieldValue.length < 15 ? false : true;
+                descriptionValid = fieldValue.length < 20 ? false : true;
                 descriptionValid
                     ? fieldInput.classList.remove('is-invalid')
                     : fieldInput.classList.add('is-invalid')
@@ -79,22 +79,24 @@ function PostForm({create}) {
 
     return (
         <div className='posts__form'>
+            <h2>Create post</h2>
             <form id="post-form" method="post">
                 <InputGroup
                     value={post.title}
                     name='title'
                     type='text'
-                    placeholder='Text here...'
+                    placeholder='Please enter at least 10 characters...'
                     title='Title'
                     required
                     onChange={(event) => handleInput(event)}/>
                 <Tags
+                    tags={tags}
                     tagsArr={post.tags}
                     tagsList={tagsList}/>
                 <TextareaGroup
                     value={post.description}
                     name='description'
-                    placeholder='Text here...'
+                    placeholder='Please enter at least 20 characters...'
                     title='Description'
                     required
                     onChange={(event) => handleInput(event)}/>

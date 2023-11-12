@@ -22,7 +22,7 @@ button.active::after {
     background: #FFFFFF;
 }
 button[disabled] {
-    opacity: 1;
+    opacity: .7;
     cursor: default
 }
 .dark {
@@ -35,7 +35,6 @@ button[disabled] {
     color: #2A2A2A;
     border: 2px #FFFFFF solid;
 }
-button[disabled],
 .dark_border {
     background: none;
     color: #2A2A2A;

@@ -130,17 +130,75 @@ textarea {
 }
 
 .posts {
+  position: relative;
   padding: 50px 0
 }
 
 .posts__form {
-  padding-bottom: 50px;
+  padding-bottom: 50px
+}
+
+.posts__form h2,
+.posts__list h2,
+.posts__filter h2 {
+  font-size: 18px;
+  margin: 0 0 40px;
+  text-transform: uppercase;
+  user-select: none
 }
 
 .posts__list {
-  padding-bottom: 30px;
+  padding-bottom: 30pxs
 }
 
-.posts__list h2 {
-  margin: 0 0 30px 0
+.posts__filter {
+  position: absolute;
+  top: 50px;
+  left: -300px;
+}
+
+.filter__options {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.filter__option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filter__option_input {
+  margin-right: 10px;
+}
+
+.checkbox-custom {
+  position: relative;
+  width: 17px;
+  height: 17px;
+  margin-right: 10px;
+  border: 1px var(--dark) solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkbox-custom::before {
+  position: absolute;
+  display: none;
+  top: 3.5px;
+  right: 3.5px;
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--grey);
+  border-radius: 3px;
+}
+
+.filter__option input:checked ~ .checkbox-custom::before {
+  display: block;
+}
+
+.filter__option input {
+  display: none;
 }
