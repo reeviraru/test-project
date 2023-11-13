@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
+import {useParams} from "react-router-dom";
 import PostForm from "../components/PostForm";
 import PostsList from "../components/PostsList";
 import PostFilter from "../components/PostFilter";

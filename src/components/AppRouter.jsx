@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, Switch, Redirect} from 'react-router-dom';
+import {Route, Switch, Redirect, useParams} from 'react-router-dom';
 import Posts from "../pages/Posts";
 import PostPage from "../pages/PostPage";
 import About from "../pages/About";
@@ -11,6 +11,7 @@ function AppRouter() {
         {path: '/posts/:id', component: PostPage, exact: true},
         {path: '/about', component: About, exact: true}
     ]
+
     return (
         <Switch>
             {publicRoutes.map(route =>
