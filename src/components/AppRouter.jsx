@@ -4,13 +4,13 @@ import Posts from "../pages/Posts";
 import PostPage from "../pages/PostPage";
 import About from "../pages/About";
 
-function AppRouter() {
+const publicRoutes = [
+    {path: '/posts', component: Posts, exact: true},
+    {path: '/posts/:id', component: PostPage, exact: true},
+    {path: '/about', component: About, exact: true}
+]
 
-    const publicRoutes = [
-        {path: '/posts', component: Posts, exact: true},
-        {path: '/posts/:id', component: PostPage, exact: true},
-        {path: '/about', component: About, exact: true}
-    ]
+function AppRouter() {
     return (
         <Switch>
             {publicRoutes.map(route =>

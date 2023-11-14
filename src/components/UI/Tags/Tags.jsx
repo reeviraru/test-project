@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import './Tags.css';
 
 function Tags({tags, tagsArr, tagsList}) {
     // const [tags, setTags] = useState(['Theme #1', 'Theme #2', 'Theme #3', 'Theme #4', 'Theme #5', 'Theme #6']);
-    
+
     function addTags(event) {
         const value = event.target.getAttribute('data-value');
         if (!tagsArr.includes(value)) {
@@ -20,25 +20,25 @@ function Tags({tags, tagsArr, tagsList}) {
 
     useEffect(() => {
         const tagsListBtn = document.querySelector('.tags__btn');
-        tagsListBtn.addEventListener('click', function() {
+        tagsListBtn.addEventListener('click', function () {
             const tagsList = document.querySelector('.tags__options');
             tagsList.classList.toggle('open');
         });
     }, []);
-    
+
     return (
         <div className="tags">
             <span className="tags__name">Theme</span>
 
             <ul className="tags__list">
-                {tagsArr.map((tag, index) => 
+                {tagsArr.map((tag, index) =>
                     <li className="tags__list_item" key={index}>
                         <span>{tag}</span>
                         <div className="delete" onClick={deleteTags} data-name={tag}>&#215;</div>
                     </li>
                 )}
             </ul>
-            
+
             <div className="select">
                 <div className="tags__select">
                     <span>Select a topic</span>
@@ -49,7 +49,7 @@ function Tags({tags, tagsArr, tagsList}) {
                     {tags.map((tag, index) =>
                         <span
                             className="tags__option"
-                            onClick={addTags} 
+                            onClick={addTags}
                             data-value={tag}
                             key={index}>{tag}</span>
                     )}
