@@ -13,7 +13,7 @@ function PostItem(props) {
                         <li className="tag" key={index}>{tag}</li>)
                     }
                 </ul>
-                <a className="item__info_name" href="">{props.post.title}</a>
+                <a className="item__info_name" href={`/posts/${props.post.id}`}>{props.post.title}</a>
                 <p className="item__info_text">{props.post.description}</p>
             </div>
 
